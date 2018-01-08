@@ -33,10 +33,18 @@ $(document).ready( function(){ //Ocultar Elemento
 	 console.log(renderHighlightedRecipes);
 	}
 
+	//Agregando elementos dinámicos 
+	function renderRecipe(recipe) {
 
+		$(".list-recipes").append("<div> <span class='title-recipe'>" + recipe.title +  "</span>" + 
+			"<span class='author-recipe'>" + recipe.source.name + "</span><img src='img/recipes/640x480/" + 
+			recipe.name + ".jpg'></div>");
+	};
 
 	
 });
+
+
 
 //La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 renderHighlightedRecipes(recipesArray);
