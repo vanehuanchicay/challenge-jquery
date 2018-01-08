@@ -1,15 +1,45 @@
-$(document).ready( function(){
+$(document).ready( function(){ //Ocultar Elemento
 	$(".js-back").hide();
 
-	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
-	renderHighlightedRecipes(recipesArray);
-
-
-	$(function printNews(){
+	$(function printNews(){ // Agregar contenido al elemento p
 		$("p").append("NUEVAS RECETAS");
 	})
+
+	//Array
+	function recipesArrays() { 
+	 //Muestre las recetas
+	 var arrayRecipes = [];
+	 for (let i = 0; i < recipesArray.length; i++) {
+	   arrayRecipes.push(recipesArray[i]);
+	 }
+	 return arrayRecipes;
+	}
+	recipesArrays();
+
+	function renderHighlightedRecipes(arrayRecipesR) {
+
+	 for (let i = 0; i < arrayRecipesR.length; i++) {
+	   //Verificar en cada objeto del arreglo si tiene la propiedad ​ highlighted ​ en
+	   //true.
+	   if (arrayRecipesR[i].highlighted === true) {
+	     renderRecipe(arrayRecipesR[i]);
+	   }
+
+	 }
+	}
+	renderHighlightedRecipes(recipesArrays());
+
+	function renderRecipe(renderHighlightedRecipes) {
+	 console.log(renderHighlightedRecipes);
+	}
+
+
+
 	
 });
+
+//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
+renderHighlightedRecipes(recipesArray);
 
 
 /*
